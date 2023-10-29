@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Order summary card</title>
+
+    <style>
+      /* Josh's Custom CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      * {
+        margin: 0;
+      }
+      body {
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      img,
+      picture,
+      video,
+      canvas,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      input,
+      button,
+      textarea,
+      select {
+        font: inherit;
+      }
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        overflow-wrap: break-word;
+      }
+      #root,
+      #__next {
+        isolation: isolate;
+      }
+      /* End of css reset*/
+      :root {
+        --clr-primary-100: hsl(225, 100%, 94%);
+        --clr-primary-400: hsl(245, 75%, 52%);
+        --clr-neutral-100: hsl(0, 0%, 100%);
+        --clr-neutral-200: hsl(225, 100%, 98%);
+        --clr-neutral-400: hsl(224, 23%, 55%);
+        --clr-neutral-800: hsl(223, 47%, 23%);
+        --fw-regular: 500;
+        --fw-bold: 700;
+        --fw-black: 900;
+      }
+
+      * {
+        outline: 1px solid red;
+      }
+
+      body {
+        background: no-repeat url(images/pattern-background-mobile.svg);
+        background-color: var(--clr-primary-100);
+        background-size: contain;
+        display: grid;
+        place-content: center;
+        height: 100vh;
+        font-size: 1rem;
+        font-family: "Red Hat Display", sans-serif;
+        font-weight: var(--fw-regular);
+        color: var(--clr-neutral-400);        
+      }
+
+      h2, h3 {
+        color: var(--clr-neutral-800);
+        font-weight: var(--fw-black);
+      }
+
+      h3 {
+        color: var(--clr-neutral-800);
+        font-size: 1rem;
+      }
+
+      .card {
+        margin: 1.5rem;
+        border-radius: 1em;
+        overflow: hidden;
+        max-width: 425px;
+        background: var(--clr-neutral-100);
+        text-align: center;
+      }
+
+      @media(max-width: 475px){
+        .card{
+          max-width: 375px;          
+        }
+      }
+
+      .card__details {
+        padding: 2.5em;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .flex-group {
+        padding: 1.5em;
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        background: var(--clr-neutral-200);
+        border-radius: 0.75em;        
+      }
+
+      .flex-group > button{
+        margin-left: auto;
+      }
+
+      .flex-group-col {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .button {
+        cursor: pointer;
+        background: var(--clr-primary-400);
+        color: white;
+        border: 0;
+        padding: 0.75em;
+        border-radius: 0.75em;
+      }
+      .button:is(:hover, :focus){
+        opacity: 0.7;
+      }
+      .button-change{
+        background: transparent;
+        color: var(--clr-primary-400);
+        font-weight: var(--fw-bold);
+        text-decoration: underline;
+      }
+      .button-cancel{
+        background: transparent;
+        color: var(--clr-neutral-800);
+        font-weight: var(--fw-bold);                    
+      }
+      .shadow{
+        box-shadow: 0 15px 15px 0 var(--clr-primary-100);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card shadow">
+      <img src="images/illustration-hero.svg" />
+      <div class="card__details">
+        <h2>Order Summary</h2>
+
+        <p>
+          You can now listen to millions of songs, audiobooks, and podcasts on
+          any device anywhere you like!
+        </p>
+
+        <div class="flex-group">
+          <img src="images/icon-music.svg" />
+          <div class="flex-group-col">
+            <h3>Annual Plan</h3>
+            <p>$59.99/year</p>
+          </div>
+          <button class="button button-change">Change</button>
+        </div>
+
+        <button class="button shadow">Proceed to Payment</button>
+        <button class="button button-cancel">Cancel Order</button>
+      </div>
+    </div>
+  </body>
+</html>
